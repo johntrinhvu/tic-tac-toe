@@ -48,6 +48,10 @@ body {
     grid-template-rows: repeat(3, 10vmin);
     /* gap: 1vmin; */
     margin-top: 1vmin;
+    font-size: 8vmin;
+    text-align: center;
+    justify-content: center;
+    
         
 }
 

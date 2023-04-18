@@ -4,14 +4,14 @@
 
 /* Constants Variables */
 const CHOICES = {
-    "0": "silver",
+    "0": "",
     "1": "X",
     "-1": "O"
 
 }
 
 const COLORS = {
-    "0": "silver", // base color
+    "0": "", // base color
     "1": "#0096FF", // light blue (X)'s
     "-1": "#ff6961", // light red (O)'s
     "draw": "#5C4033" // color when there is Draw
@@ -25,6 +25,9 @@ let winner;
 /* Cached Elements */
 const messageEl = document.querySelector("h1");
 const resetBoardBtn = document.querySelector("button");
+
+// the empty 0's on the board
+const boardEls = [...document.querySelectorAll("#board")];
 
 
 /* Event Listeners */
@@ -59,7 +62,8 @@ function renderBoard() {
         colArr.forEach(function(cellVal, rowIdx) {
             const cellId = `c${colIdx}r${rowIdx}`;
             const cellEl = document.getElementById(cellId);
-            cellEl.style.backgroundColor = CHOICES[cellVal]
+            // cellEl.innerHTML = `<span style="color: ${COLORS[turn]}">${CHOICES[turn]}</span>`; = CHOICES[cellVal]
+            cellEl.innerHTML = `<span style="color: ${COLORS[cellVal]}">${CHOICES[cellVal]}</span>`
 
         });
     });
@@ -85,5 +89,10 @@ function renderControls() {
     resetBoardBtn.style.visibility = winner ? "visible": "hidden";
 
 
-
 }
+
+// const cellOne = document.getElementById('c0r2');
+
+// cellOne.addEventListener('click', function() {
+//   cellOne.innerHTML = `<span style="color: ${COLORS[turn]}">${CHOICES[turn]}</span>`;
+// });
